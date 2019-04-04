@@ -3,7 +3,7 @@ module.exports = {
     loaderOptions: {
       // 给 sass-loader 传递选项
       sass: {
-        data: `@import "@/global/global.scss";`
+        data: `@import"@/global/global.scss";`
       }
     }
   }
