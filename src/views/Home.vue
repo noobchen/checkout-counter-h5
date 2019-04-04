@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="bottm-content-wrap">
-      <div class="checkout-log"><span class="iocn"></span>收款记录</div>
+      <div class="checkout-log"><span class="icon"></span>收款记录</div>
       <div class="uoser-info"><span class="iocn"></span>用户信息</div>
     </div>
 
@@ -127,8 +127,16 @@ export default {
         font-family: PingFangSC-regular;
       }
     };
-    &:first-child{
+    & div:first-child{
       border-right: 1px solid  rgba(187, 187, 198,1);
+    }
+  }
+  .checkout-log{
+    width: 375px;
+    height: 50px;
+    &::before{
+      content: '';
+      border: 5px solid transparent;
     }
   }
 }
