@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <div class="home-bar">
-      卡e族收银台
-    </div>
+    <div class="home-bar">卡e族收银台</div>
     <pop-Box v-if="showPop">
       <div class="pop-wrap">
         <div class="input-wrap ignore">
@@ -39,9 +37,10 @@
         <div class="qr-img-wrap">
           <div class="qr-img"></div>
         </div>
+        <div class="amount">￥20.00</div>
         <div class="tool-wrap">
           <div>
-            <span  @click="showPop=true">设置金额</span>
+            <span @click="showPop=true">设置金额</span>
           </div>
           <div class="_text_right">
             <span class="_text_right">保存图片</span>
@@ -64,7 +63,7 @@
         </div>
         <icons color="#101010" type="gengduo" :size="16"></icons>
       </div>
-      <div class="bottom-content-button"  @click="router.push({path: '/userInfo}'})">
+      <div class="bottom-content-button" @click="$router.push('/userInfo')">
         <div>
           <span class="user-info icon"></span>
           用户信息
@@ -82,10 +81,12 @@ import uniListItem from "@/components/uni-list-item/uni-list-item.vue";
 import popBox from "@/components/popBox/popBox.vue";
 export default {
   name: "home",
-  data(){
+  data() {
     return {
       showPop: false
-    }
+    };
+  },
+  methods:{
   },
   components: {
     uniListItem,
@@ -96,22 +97,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-bar{
-width: 375px;
-height: 55px;
-line-height: 55px;
-background-color: rgba(5, 154, 220, 1);
-color: rgba(255, 255, 255, 1);
-font-size: 18px;
-text-align: center;
-font-family: Microsoft Yahei;
+.amount {
+  padding-top: 23px;
+  width: 100%;
+  text-align: center;
+  color: rgba(16, 16, 16, 1);
+  font-size: 36px;
+  font-family: PingFangSC-regular;
+}
+.home-bar {
+  width: 375px;
+  height: 55px;
+  line-height: 55px;
+  background-color: rgba(5, 154, 220, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 18px;
+  text-align: center;
+  font-family: Microsoft Yahei;
 }
 .pop-wrap {
   width: 300px;
   // height: 154px;
 
   .input-wrap {
-  
     // box-sizing: border-box;
     height: 40px;
     padding: 43px 0px 31px 12px;
@@ -123,7 +131,7 @@ font-family: Microsoft Yahei;
       width: 200px;
       height: 40px;
       padding-left: 7px;
-      
+
       border-radius: 2px;
       border: 1px solid rgba(187, 187, 187, 1);
       // height: 100%;
@@ -132,27 +140,25 @@ font-family: Microsoft Yahei;
         color: rgb(16, 16, 16);
       }
     }
-    
   }
-  .btn-wrap{
-      width: 100%;
-      & span:last-child{
-        box-sizing: border-box;
-        border-left: 2px solid $hui ;
-        color:$lan;
-      }
-      span{
-        box-sizing: border-box;
-        // border-color: rgba(187, 187, 187, 1);
-        border-top: 1px solid $hui ;
-        display: inline-block;
-        width: 50%;
-        text-align: center;
-        height: 40px;
-        line-height: 40px
-
-      }
+  .btn-wrap {
+    width: 100%;
+    & span:last-child {
+      box-sizing: border-box;
+      border-left: 2px solid $hui;
+      color: $lan;
     }
+    span {
+      box-sizing: border-box;
+      // border-color: rgba(187, 187, 187, 1);
+      border-top: 1px solid $hui;
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+    }
+  }
 }
 .home {
   width: 375px;
@@ -166,7 +172,6 @@ font-family: Microsoft Yahei;
     opacity: 0.7;
     background-color: rgba(5, 154, 220, 1);
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0);
     .checkout-text-wrap {
       width: 192px;
       height: 33px;
@@ -243,7 +248,7 @@ font-family: Microsoft Yahei;
     display: flex;
     justify-content: space-between;
     width: 214px;
-    padding-top: 23px;
+    padding-top: 12px;
     div {
       width: 50%;
       span {
@@ -290,7 +295,8 @@ font-family: Microsoft Yahei;
     font-family: PingFangSC-regular;
     // line-height: 20px;
     // text-align: center;
-    border: 1px solid $hui;
+    border-top: 1px solid $hui;
+    border-bottom: 1px solid $hui;
   }
 }
 </style>
