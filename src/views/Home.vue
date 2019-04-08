@@ -1,59 +1,149 @@
 <template>
   <div class="home">
+    <pop-Box v-if="showPop">
+      <div class="pop-wrap">
+        <div class="input-wrap ignore">
+          <!-- <div class="input-content"> -->
+          设置金额
+          <input type="text" placeholder="请输入金额">
+          <!-- </div> -->
+        </div>
+        <div class="btn-wrap">
+          <span @click="showPop=false">取消</span>
+          <span>确认</span>
+        </div>
+      </div>
+    </pop-Box>
     <div class="checkout-info">
-      <div class="checkout-text-wrap">你有一笔支付宝进账   <span class="_text_right">20.00元</span></div>
+      <div class="checkout-text-wrap">
+        你有一笔支付宝进账
+        <span class="_text_right">20.00元</span>
+      </div>
     </div>
     <div class="qr-wrap">
       <div class="qr-content">
         <div class="qr-title">在此扫码付款</div>
         <div class="qr-icon-wrap">
           <div class="qe-icon-wrap-content">
-            <span class="icon-left"></span><span>支付宝</span>
+            <span class="icon-left icon"></span>
+            <span class="qr-text">支付宝</span>
           </div>
           <div class="qe-icon-wrap-content">
-            <span class="icon-left"></span><span>微信支付</span>
+            <span class="icon-right icon"></span>
+            <span class="qr-text">微信支付</span>
           </div>
         </div>
         <div class="qr-img-wrap">
           <div class="qr-img"></div>
         </div>
         <div class="tool-wrap">
-          <div><span>设置金额</span></div>
-          <div class="_text_right" ><span class="_text_right" >保存图片</span></div>
+          <div>
+            <span  @click="showPop=true">设置金额</span>
+          </div>
+          <div class="_text_right">
+            <span class="_text_right">保存图片</span>
+          </div>
         </div>
       </div>
     </div>
-    <uni-list>
-      <uni-list-item title="标题文字"
-                     show-extra-icon="true"
-                     :extra-icon="{color: '#4cd964',size: '22',type: 'spinner'}">
-      </uni-list-item>
-    </uni-list>
+    <!-- <uni-list>
+      <uni-list-item title="标题文字" 
+        show-extra-icon="true" 
+        :extra-icon="{color: '#4cd964',size: '22',type: 'spinner'}">
+    </uni-list-item>
+    </uni-list>-->
 
-    <!--<div class="bottom-content-wrap">-->
-      <!--<div class="checkout-log bottom-content-button"><span class="icon"></span>收款记录</div>-->
-      <!--<div class="uoser-info bottom-content-button"><span class="iocn"></span>用户信息</div>-->
-    <!--</div>-->
-
+    <div class="bottom-content-wrap">
+      <div class="bottom-content-button">
+        <div>
+          <span class="checkout-log icon"></span>
+          收款信息
+        </div>
+        <icons color="#101010" type="gengduo" :size="16"></icons>
+      </div>
+      <div class="bottom-content-button">
+        <div>
+          <span class="user-info icon"></span>
+          用户信息
+        </div>
+        <icons color="#101010" type="gengduo" :size="16"></icons>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import uniList from '@/components/uni-list/uni-list.vue'
-import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
+import uniList from "@/components/uni-list/uni-list.vue";
+import uniListItem from "@/components/uni-list-item/uni-list-item.vue";
+import popBox from "@/components/popBox/popBox.vue";
 export default {
-  name: 'home',
+  name: "home",
+  data(){
+    return {
+      showPop: false
+    }
+  },
   components: {
     uniListItem,
-    uniList
+    uniList,
+    popBox
   }
-}
+};
 </script>
+
 <style lang="scss" scoped>
+.pop-wrap {
+  width: 300px;
+  // height: 154px;
+
+  .input-wrap {
+  
+    // box-sizing: border-box;
+    height: 40px;
+    padding: 43px 0px 31px 12px;
+    // line-height: 52px;
+    color: rab(16, 16, 16);
+
+    input {
+      box-sizing: border-box;
+      width: 200px;
+      height: 40px;
+      padding-left: 7px;
+      
+      border-radius: 2px;
+      border: 1px solid rgba(187, 187, 187, 1);
+      // height: 100%;
+      margin-left: 12px;
+      &::placeholder {
+        color: rgb(16, 16, 16);
+      }
+    }
+    
+  }
+  .btn-wrap{
+      width: 100%;
+      & span:last-child{
+        box-sizing: border-box;
+        border-left: 2px solid $hui ;
+        color:$lan;
+      }
+      span{
+        box-sizing: border-box;
+        // border-color: rgba(187, 187, 187, 1);
+        border-top: 1px solid $hui ;
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        height: 40px;
+        line-height: 40px
+
+      }
+    }
+}
 .home {
   width: 375px;
-  .checkout-info{
+  .checkout-info {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,23 +154,23 @@ export default {
     background-color: rgba(5, 154, 220, 1);
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0);
-    .checkout-text-wrap{
+    .checkout-text-wrap {
       width: 192px;
       height: 33px;
       color: rgba(255, 255, 255, 1);
       font-size: 14px;
       text-align: left;
       font-family: PingFangSC-regular;
-      span{
+      span {
         color: white;
       }
     }
   }
-  .qr-wrap{
+  .qr-wrap {
     box-sizing: border-box;
     width: 375px;
-    padding: 40px;
-    .qr-content{
+    padding: 40px 40px 32px 40px;
+    .qr-content {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -88,7 +178,7 @@ export default {
       /*width: 334px;*/
       /*width: 100%;*/
       /*padding: 0px;*/
-      .qr-title{
+      .qr-title {
         padding: 8px 0;
         color: rgba(16, 16, 16, 1);
         font-size: 28px;
@@ -96,73 +186,98 @@ export default {
         text-align: center;
         font-family: PingFangSC-regular;
       }
-      .qr-icon-wrap{
+      .qr-icon-wrap {
         width: 214px;
         display: flex;
         justify-content: space-between;
-        span{
+        .icon-left {
+          background-image: url("../assets/image/支付宝.svg");
+          background-size: 30px 30px;
+          background-repeat: no-repeat;
+          background-origin: center;
+        }
+        .icon-right {
+          background-image: url("../assets/image/微信支付1.svg");
+          background-size: 30px 30px;
+          background-repeat: no-repeat;
+          background-origin: center;
+        }
+        .qr-text {
           /*visibility: visible;*/
           padding-left: 7px;
           vertical-align: middle;
         }
-        .icon-left,.icon-right{
-          display: inline-block;
-          width: 30px;
-          height: 30px;
-          background-color: red;
 
-        }
+        // .icon-left,
+        // .icon-right {
+        //   display: inline-block;
+        //   width: 30px;
+        //   height: 30px;
+        //   // background-color: red;
+        // }
       }
     }
   }
-  .qr-img-wrap{
+  .qr-img-wrap {
     padding-top: 36px;
-    .qr-img{
+    .qr-img {
       width: 214px;
       height: 220px;
       background-color: darkred;
     }
   }
-  .tool-wrap{
+  .tool-wrap {
     display: flex;
     justify-content: space-between;
     width: 214px;
     padding-top: 23px;
-    div{
+    div {
       width: 50%;
-      span{
-
+      span {
         color: rgba(5, 154, 220, 1);
         font-size: 16px;
         font-family: PingFangSC-regular;
       }
-    };
-    & div:first-child{
-      border-right: 1px solid  rgba(187, 187, 198,1);
     }
-  }
-  .checkout-log{
-    width: 375px;
-    height: 50px;
-    &::before{
-      content: '';
-      border: 5px solid transparent;
+    & div:first-child {
+      border-right: 1px solid rgba(187, 187, 198, 1);
     }
   }
 }
-  .bottom-content-wrap{
-    .bottom-content-button{
-      display: flex;
-      justify-content: space-between;
+.bottom-content-wrap {
+  width: 375px;
+  .bottom-content-button {
+    & > div {
+      height: 100%;
     }
-  }
-  .uni-list{
-    width: 375px;
-    /*height: 100px;*/
-    .uni-list-item{
-      width: 100%;
-      height: 50px;
+    .checkout-log {
+      background-image: url("../assets/image/收款记录.svg");
+      background-size: 30px 30px;
+      background-origin: content-box;
+      // background-color: red;
+    }
+    .user-info {
+      background-image: url("../assets/image/用户信息.svg");
+      background-size: 30px 30px;
     }
 
+    margin-top: -1px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 13px;
+    width: 375px;
+    height: 50px;
+    line-height: 50px;
+    left: 49px;
+
+    color: rgba(16, 16, 16, 1);
+    font-size: 14px;
+    text-align: left;
+    font-family: PingFangSC-regular;
+    // line-height: 20px;
+    // text-align: center;
+    border: 1px solid $hui;
   }
+}
 </style>

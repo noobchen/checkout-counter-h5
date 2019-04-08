@@ -10,6 +10,9 @@
 <style lang="scss">
 html,body{
   height: 100%;
-  padding: 0px
+  padding: 0px;
+font-size: 14px;
+color: rgba(16, 16, 16, 1);
+font-family: PingFangSC-regular;
 }
 </style>
