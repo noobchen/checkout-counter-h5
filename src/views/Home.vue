@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <div class="home-bar">
+      卡e族收银台
+    </div>
     <pop-Box v-if="showPop">
       <div class="pop-wrap">
         <div class="input-wrap ignore">
@@ -61,7 +64,7 @@
         </div>
         <icons color="#101010" type="gengduo" :size="16"></icons>
       </div>
-      <div class="bottom-content-button">
+      <div class="bottom-content-button"  @click="router.push({path: '/userInfo}'})">
         <div>
           <span class="user-info icon"></span>
           用户信息
@@ -93,6 +96,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home-bar{
+width: 375px;
+height: 55px;
+line-height: 55px;
+background-color: rgba(5, 154, 220, 1);
+color: rgba(255, 255, 255, 1);
+font-size: 18px;
+text-align: center;
+font-family: Microsoft Yahei;
+}
 .pop-wrap {
   width: 300px;
   // height: 154px;
