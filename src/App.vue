@@ -8,7 +8,8 @@
 </template>
 
 <style lang="scss">
-body{
+html,body{
+  height: 100%;
   padding: 0px
 }
 </style>

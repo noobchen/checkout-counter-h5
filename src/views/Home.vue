@@ -23,20 +23,30 @@
         </div>
       </div>
     </div>
-    <div class="bottm-content-wrap">
-      <div class="checkout-log"><span class="icon"></span>收款记录</div>
-      <div class="uoser-info"><span class="iocn"></span>用户信息</div>
-    </div>
+    <uni-list>
+      <uni-list-item title="标题文字"
+                     show-extra-icon="true"
+                     :extra-icon="{color: '#4cd964',size: '22',type: 'spinner'}">
+      </uni-list-item>
+    </uni-list>
+
+    <!--<div class="bottom-content-wrap">-->
+      <!--<div class="checkout-log bottom-content-button"><span class="icon"></span>收款记录</div>-->
+      <!--<div class="uoser-info bottom-content-button"><span class="iocn"></span>用户信息</div>-->
+    <!--</div>-->
 
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import uniList from '@/components/uni-list/uni-list.vue'
+import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
 export default {
   name: 'home',
   components: {
+    uniListItem,
+    uniList
   }
 }
 </script>
@@ -140,4 +150,19 @@ export default {
     }
   }
 }
+  .bottom-content-wrap{
+    .bottom-content-button{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .uni-list{
+    width: 375px;
+    /*height: 100px;*/
+    .uni-list-item{
+      width: 100%;
+      height: 50px;
+    }
+
+  }
 </style>
