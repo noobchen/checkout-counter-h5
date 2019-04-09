@@ -9,6 +9,7 @@
 
 <style lang="scss">
 html,body{
+  background-color: rgba(250, 250, 250,1);
   height: 100%;
   padding: 0px;
 font-size: 14px;

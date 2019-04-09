@@ -1,6 +1,20 @@
 <template>
   <div>
-    <div class="bar">&lt 用户信息</div>
+    <div class="bar" @click="$router.go(-1)">
+        <icons color="#101010" type="fanhui" :size="16"> </icons>
+      用户信息
+      
+       </div>
+    <div class="content">
+      <div class="title">商 户 名 称 : <p>英智云科技</p></div>
+      <div class="title">经 营 地 址 : <p style="max-width: 196px">福建省厦门市集美区软件园三期B03栋2301室</p></div>
+      <div class="title">负责人姓名  : <p>英智云科技</p></div>
+      <div class="title">身份证号码  : <p>英智云科技</p></div>
+      <div class="title">联 系 电 话 : <p>英智云科技</p></div>
+      <div class="title">收 款 银 行 : <p>英智云科技</p></div>
+      <div class="title">收 款 账 户 : <p>英智云科技</p></div>
+      <div class="title">收款人姓名  : <p>英智云科技</p></div>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -12,5 +26,34 @@
   line-height: 44px;
   background-color: rgba(5, 154, 220, 1);
   text-align: left;
+  
 }
+.content{
+  width: 375px;
+  box-sizing: border-box;
+  padding: 24px 0 0 7px;
+  .title>p{
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    max-width: 196px;
+    padding-left: 6px;
+    word-wrap: break-word;
+    color:$f-hei;
+  }
+}
+.title{
+  width: $gw;
+  line-height: 1.5;
+  padding-bottom: 21px;
+  font-size: 14px;
+  color: $f-hui;
+ 
+}
+.iconfont.icon-fanhui{
+  margin-left: 9px;
+  color: #FFF !important;
+  display: inline-block;
+}
+
 </style>
