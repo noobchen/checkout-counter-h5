@@ -1,6 +1,19 @@
 <template>
   <div class="home">
     <div class="home-bar">卡e族收银台</div>
+    <pop-box>
+      <div class="fill-in-pop">
+        <div class="fill-wrap">
+          <div class="warn"></div>
+          <p>
+            此功能需要您完善商户资料
+            <br>才能使用
+          </p>
+        <div class="btn" @click="$router.push('/ruWangXingShi')">马上完善</div>
+
+        </div>
+      </div>
+    </pop-box>
     <pop-Box v-if="showPop">
       <div class="pop-wrap">
         <div class="input-wrap ignore">
@@ -86,8 +99,7 @@ export default {
       showPop: false
     };
   },
-  methods:{
-  },
+  methods: {},
   components: {
     uniListItem,
     uniList,
@@ -97,6 +109,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fill-in-pop {
+  width: 250px;
+  .fill-wrap {
+    width: 250px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .warn {
+    margin-top: 6px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background: url("../assets/image/驳回.svg") center no-repeat;
+    background-size: 100% 100%;
+  }
+  p {
+    text-align: center;
+    line-height: 1.5;
+  }
+  .btn {
+    margin: 0px;
+    margin-bottom: 18px;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 2px;
+    background-color: rgba(5, 154, 220, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 14px;
+    text-align: center;
+    font-family: Arial;
+    border: 1px solid rgba(187, 187, 187, 1);
+  }
+}
 .amount {
   padding-top: 23px;
   width: 100%;

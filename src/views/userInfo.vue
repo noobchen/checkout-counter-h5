@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div class="bar" @click="$router.go(-1)">
-        <icons color="#101010" type="fanhui" :size="16"> </icons>
-      用户信息
-      
-       </div>
+    <back-bar title="用户信息"></back-bar>
     <div class="content">
       <div class="title">商 户 名 称 : <p>英智云科技</p></div>
       <div class="title">经 营 地 址 : <p style="max-width: 196px">福建省厦门市集美区软件园三期B03栋2301室</p></div>
@@ -19,7 +15,9 @@
   </div>
 </template>
 <script>
-import { debug } from 'util';
+// import { debug } from 'util';
+import backBar from '../components/backBar/backBar'
+
 export default {
   name: 'userInfo',
   data() {
@@ -27,6 +25,7 @@ export default {
       index: 0
     }
   },
+  components: {backBar},
   computed:{
     status() {
       debugger
@@ -65,7 +64,7 @@ export default {
     // background-color: red;
     background-image: url('../assets/image/审核通过.svg');
     background-position: center;
-    
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     position: absolute;
     top: 120px;
@@ -89,10 +88,6 @@ export default {
   color: $f-hui;
  
 }
-.iconfont.icon-fanhui{
-  margin-left: 9px;
-  color: #FFF !important;
-  display: inline-block;
-}
+
 
 </style>

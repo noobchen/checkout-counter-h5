@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import userInfo from './views/userInfo'
+import UserInfo from './views/UserInfo'
+import RuWang from './views/RuWang'
 
 Vue.use(Router)
 
@@ -17,7 +18,12 @@ export default new Router({
     {
       path: '/userInfo',
       name: 'userInfo',
-      component: userInfo
+      component: UserInfo
+    },
+    {
+      path: '/ruWangXingShi',
+      name: 'ruWangXingshi',
+      component: RuWang
     }
   ]
 })
