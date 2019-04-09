@@ -26,7 +26,7 @@
      
     </div>
     <div class="next-wrap">
-      <div class="next ">下一步</div>
+      <div class="next " @click="$router.push('/shoppingunit')">下一步</div>
     </div>
   </div>
 </template>

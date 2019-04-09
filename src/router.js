@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import UserInfo from './views/UserInfo'
 import RuWang from './views/RuWang'
+import Shoppingunit from './views/Shoppingunit'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/ruWangXingShi',
       name: 'ruWangXingshi',
       component: RuWang
+    },
+    {
+      path: '/shoppingunit',
+      name: 'shoppingunit',
+      component: Shoppingunit
     }
   ]
 })
