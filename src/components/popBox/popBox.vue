@@ -1,5 +1,5 @@
 <template>
-    <div class="shadom">
+    <div class="shadom" ref="shadom">
         <div class="center">
 
             <slot></slot>
@@ -7,8 +7,23 @@
     </div>
 </template>
 <script>
+import { debug } from 'util';
 export default {
-    name: 'popBox'
+    name: 'popBox',
+    created() {
+        document.documentElement.style.overflow = 'hidden'
+
+    },
+    mounted() {
+        document.documentElement.style.overflow = 'hidden'
+
+        // debugger        
+        // this.$refs.shadom.style.height = document.documentElement.style.height
+
+    },
+    beforeDestroy() {
+        document.documentElement.style.overflow = 'auto'
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -17,12 +32,14 @@ export default {
     position: absolute;
     top: 0px;
     left: 0px;
+    right: 0px;
+    bottom: 0px;
     z-index: 99;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 375px;
-    height: 100%;
+    // width: 375px;
+    // height: 100%;
     background-color:rgba(0, 0, 0, .7);
     .center{
       background-color: #fff;

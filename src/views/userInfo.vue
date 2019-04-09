@@ -14,9 +14,34 @@
       <div class="title">收 款 银 行 : <p>英智云科技</p></div>
       <div class="title">收 款 账 户 : <p>英智云科技</p></div>
       <div class="title">收款人姓名  : <p>英智云科技</p></div>
+      <div class="status-icon" :style="status"></div>
     </div>
   </div>
 </template>
+<script>
+import { debug } from 'util';
+export default {
+  name: 'userInfo',
+  data() {
+    return {
+      index: 0
+    }
+  },
+  computed:{
+    status() {
+      debugger
+      let arr = [
+        '../assets/image/审核通过.svg',
+        
+      ]
+      let data = {
+        backgroundImage: `url('${arr[this.index] }') ;`
+      }
+      return  `backgroundImageurl('${arr[this.index] }') ;`
+    }
+  }
+}
+</script>
 <style lang="scss" scoped>
 .bar {
   width: 375px;
@@ -29,9 +54,23 @@
   
 }
 .content{
+  position: relative;
   width: 375px;
   box-sizing: border-box;
   padding: 24px 0 0 7px;
+  background-color: #fff;
+  .status-icon{
+    width: 145px;
+    height: 145px;
+    // background-color: red;
+    background-image: url('../assets/image/审核通过.svg');
+    background-position: center;
+    
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 120px;
+    right: 0px;
+  }
   .title>p{
     margin: 0;
     vertical-align: top;
