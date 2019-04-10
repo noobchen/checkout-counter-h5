@@ -7,8 +7,8 @@
 					<div class="uni-steps-item-desc" v-if="item.desc">{{ item.desc}}</div>
 				</div>
 				<div class="uni-steps-item-circle-container">
-					<div class="uni-steps-item-circle" v-if="index !== active" :style="{backgroundColor:index < active ? activeColor : ''}"></div>
-					<uni-icon v-else type="checkbox-filled" size="14" :color="activeColor"></uni-icon>
+					<div class="uni-steps-item-circle"  :style="{backgroundColor:index < active ? activeColor : ''}"></div>
+					<!-- <uni-icon v-else type="checkbox-filled" size="14" :color="activeColor"></uni-icon> -->
 				</div>
 				<div class="uni-steps-item-line" v-if="index !== options.length-1" :style="{backgroundColor:index < active ? activeColor : ''}"></div>
 			</div>
@@ -36,7 +36,14 @@
 				type: Number,
 				default: 0
 			},
-			options: Array //数据
+			options:{type: Array ,//数据
+			default: [
+    {title: '事件一'}, 
+    {title: '事件二'}, 
+    {title: '事件三'}, 
+	{title: '事件四'}
+	]
+			}
 		},
 		data() {
 			return {}
@@ -58,7 +65,7 @@
 			position: relative;
 			display: flex;
 			flex-direction: row;
-			margin: 10px;
+			margin: 12px 23px;
 			box-sizing: border-box;
 			overflow: hidden;
 
@@ -188,16 +195,16 @@
 
 			&-circle-container {
 				position: absolute;
-				bottom: 8px;
+				bottom: 5px;
 				left: -8px;
 				padding: 0 8px;
-				background-color: $uni-bg-color;
+				// background-color: $uni-bg-color;
 				z-index: 1;
 			}
 
 			&-circle {
-				width: 5px;
-				height: 5px;
+				width: 10px;
+				height: 10px;
 				background-color: $uni-text-color-grey;
 				border-radius: $uni-border-radius-circle;
 			}
@@ -219,10 +226,19 @@
 
 			&.uni-steps-process {
 				.uni-steps-item-circle-container {
-					bottom: 3px;
+					// bottom: 3px;
 					display: flex;
 				}
 			}
 		}
 	}
+	.uni-steps-item {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 40px;
+    position: relative;
+    padding-bottom: 4.8vw;
+    content: "viewport-units-buggyfill; padding-bottom: 4.8vw";
+}
 </style>

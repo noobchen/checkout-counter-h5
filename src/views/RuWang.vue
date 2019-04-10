@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .wrap {
   width: $gw;
   padding: 24px 0 0 9px;
