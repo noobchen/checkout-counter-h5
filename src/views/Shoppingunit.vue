@@ -3,20 +3,24 @@
     <back-bar title="商户入驻"></back-bar>
     <steps :active="step" activeColor='#059ADC' :options="stepsTitle">
     </steps>
-    <div class="content">
+    <div class="content" v-show="step===0">
       <my-input :val='UserName' label="姓&emsp;&emsp;名: " placeholder="请输入真实姓名"></my-input>
       <my-input :val='UserName' label="联系电话: " placeholder="请输入手机号码"></my-input>
       <my-input :val='UserName' label="身份证号: " placeholder="请输入身份证号码"></my-input>
       <my-input :val='UserName' label="邮&emsp;&emsp;箱: " placeholder="请输入邮箱号码（选填）"></my-input>
       <my-input :val='UserName' label="客服电话: " placeholder="请输入客服电话（选填）"></my-input>
     </div>  
-    <div class="next">下一步</div>
+    <div class="content">
+      <my-select :val='UserName' label="姓&emsp;&emsp;名: " placeholder="请输入真实姓名"></my-select>
+    </div>
+    <div class="next" @click="step++">下一步</div>
   </div>
 </template>
 <script>
 import backBar from "../components/backBar/backBar";
 import steps from "../components/uni-steps/uni-steps";
 import myInput from "../components/myInput/myInput";
+import mySelect from "../components/mySelect/mySelect";
 export default {
   name: "shoppingunit",
   data() {
@@ -34,7 +38,8 @@ export default {
   components: {
     backBar,
     steps,
-    myInput
+    myInput,
+    mySelect
   }
 };
 </script>
