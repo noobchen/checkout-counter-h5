@@ -3,7 +3,7 @@
     <div class="content">
       <label v-html="label"></label>
       <div class="select">
-        <div class="placeholder">dsfdsafsd</div>
+        <div class="placeholder">{{placeholder}}</div>
         <icons class="icons" color="#059ADC" type="gengduo" :size="14"></icons>
       </div>
     </div>
@@ -67,7 +67,7 @@ export default {
   }
 }
 label {
-  width: 70px;
+  min-width: 70px;
   color: rgba(16, 16, 16, 1);
   font-size: 14px;
   text-align: left;

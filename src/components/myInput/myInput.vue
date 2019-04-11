@@ -40,7 +40,7 @@ export default {
   }
 }
 label {
-    width: 70px;
+    min-width: 70px;
   color: rgba(16, 16, 16, 1);
   font-size: 14px;
   text-align: left;
