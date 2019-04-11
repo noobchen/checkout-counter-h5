@@ -11,7 +11,7 @@
       <my-input :val='UserName' label="客服电话: " placeholder="请输入客服电话（选填）"></my-input>
     </div>  
     <div class="content">
-      <my-select :val='UserName' label="姓&emsp;&emsp;名: " placeholder="请输入真实姓名"></my-select>
+      <my-select :val='UserName' :columns="1" :cancel="(() =>this.show=false)" :confirm="log" :selectData="pickData" label="姓&emsp;&emsp;名: " placeholder="请输入真实姓名"></my-select>
     </div>
     <div class="next" @click="step++">下一步</div>
   </div>
@@ -32,7 +32,20 @@ export default {
         { title: "结算信息" },
         { title: "商户信息" },
         { title: "资料上传" }
-      ]
+      ],
+       pickData: {
+        // 第一列的数据结构
+        data1: [
+          {
+            text: 1999,
+            value: 1999
+          },
+          {
+            text: 2001,
+            value: 2001
+          }
+        ]
+      }
     };
   },
   components: {
@@ -40,6 +53,11 @@ export default {
     steps,
     myInput,
     mySelect
+  },
+  methods: {
+    log(val) {
+      console.log(val)
+    }
   }
 };
 </script>

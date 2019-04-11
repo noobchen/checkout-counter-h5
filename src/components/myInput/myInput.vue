@@ -34,7 +34,8 @@ export default {
   .content {
     display: flex;
     box-sizing: border-box;
-    margin: 0 12px;
+    // margin: 0 12px;
+    margin-left: 12px;
     border-bottom: 1px solid $hui;
   }
 }
