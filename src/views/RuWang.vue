@@ -23,10 +23,9 @@
         <input type="radio" v-model="val3" value="b" id="f">
         <label :class="{selected: val3 ==='b'}" v-if="val1!=='a'&&val2!=='b'" for="f" class="select-btn">非法人</label>
       </div>
-     
     </div>
     <div class="next-wrap">
-      <div class="next " @click="$router.push('/shoppingunit')">下一步</div>
+      <div class="next " @click="nextGoRoute">下一步</div>
     </div>
   </div>
 </template>
@@ -34,12 +33,29 @@
 import backBar from "../components/backBar/backBar";
 export default {
   name: "ruWang",
-  data() {
+  data: function () {
     return {
       val1: '',
       val2: '',
       val3: ''
-    };
+    }
+  },
+  methods: {
+    nextGoRoute () {
+      // debugger
+      if (this.val && this.val2 && this.val3) {
+        return
+      }
+      let str = this.val1 + this.val2 + this.val3
+      if (str === 'baa' || str === 'aba') {
+        this.$router.push('/shoppingunit')
+      }
+      if (str === 'bba') {
+        this.$router.push('/shoppingunitOne')
+      }
+      if (str === 'aaa') {}
+      this.$router.push('/shoppingunitTwo')
+    }
   },
   components: {
     backBar
@@ -55,8 +71,12 @@ export default {
 }
 .next-wrap{
   width: $gw;
-  padding-top: 300px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  /*padding-top: 300px;*/
   .next{
+    z-index: 999;
     width: $gw;
     height: 48px;
     font-size: 14px;

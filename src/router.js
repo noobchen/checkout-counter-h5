@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import UserInfo from './views/UserInfo'
-import RuWang from './views/RuWang'
-import Shoppingunit from './views/Shoppingunit'
 
 Vue.use(Router)
 
@@ -19,17 +16,37 @@ export default new Router({
     {
       path: '/userInfo',
       name: 'userInfo',
-      component: UserInfo
+      component: function () {
+        return import('./views/UserInfo')
+      }
     },
     {
       path: '/ruWangXingShi',
       name: 'ruWangXingshi',
-      component: RuWang
+      component: function () {
+        return import('./views/RuWang')
+      }
     },
     {
       path: '/shoppingunit',
       name: 'shoppingunit',
-      component: Shoppingunit
+      component: function () {
+        import('./views/Shoppingunit')
+      }
+    },
+    {
+      path: '/shoppingunitOne',
+      name: 'shoppingunitOne',
+      component: function () {
+        return import('./views/ShoppingunitOne')
+      }
+    },
+    {
+      path: '/shoppingunitTwo',
+      name: 'shoppingunitTwo',
+      component: function () {
+        return import('./views/ShoppingunitTwo')
+      }
     }
   ]
 })

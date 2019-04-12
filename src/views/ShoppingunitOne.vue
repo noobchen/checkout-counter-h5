@@ -7,6 +7,8 @@
       <my-input :val='UserName' label="姓&emsp;&emsp;名: " placeholder="请输入真实姓名"></my-input>
       <my-input :val='UserName' label="联系电话: " placeholder="请输入手机号码"></my-input>
       <my-input :val='UserName' label="身份证号: " placeholder="请输入身份证号码"></my-input>
+      <my-input :val='UserName' label="授权人姓名: " placeholder="请输入授权人姓名"></my-input>
+      <my-input :val='UserName' label="授权人联系电话: " placeholder="请输入授权人联系电话"></my-input>
       <my-input :val='UserName' label="邮&emsp;&emsp;箱: " placeholder="请输入邮箱号码（选填）"></my-input>
       <my-input :val='UserName' label="客服电话: " placeholder="请输入客服电话（选填）"></my-input>
     </div>
@@ -45,12 +47,21 @@
       <div class="file-row">
         <file-img title="营业场所照"></file-img>
         <file-img title="营业执照"></file-img>
-      </div> <div class="file-row">
-        <file-img :required="false" title="商户协议照(选填）"></file-img>
-        <file-img :required="false" title="特殊行业照（选填）"></file-img>
-      </div> <div class="file-row">
-        <file-img :required="false" title="其他资料（选填）"></file-img>
       </div>
+      <div class="file-row">
+        <file-img title="授权协议书"></file-img>
+        <file-img title="结算人手持授权协议书"></file-img>
+      </div>
+      <div class="file-row">
+        <file-img title="结算人身份证正面照"></file-img>
+        <file-img title="结算人身份证反面照"></file-img>
+      </div>
+      <div class="file-row">
+      <file-img :required="false" title="商户协议照(选填）"></file-img>
+      <file-img :required="false" title="特殊行业照（选填）"></file-img>
+    </div> <div class="file-row">
+      <file-img :required="false" title="其他资料（选填）"></file-img>
+    </div>
 
     </div>
     <div class="next" @click="step++" v-if="step===0" >下一步</div>
@@ -61,107 +72,107 @@
   </div>
 </template>
 <script>
-import backBar from '../components/backBar/backBar'
-import steps from '../components/uni-steps/uni-steps'
-import myInput from '../components/myInput/myInput'
-import mySelect from '../components/mySelect/mySelect'
-import FileImg from '../components/fileImg/fileImg'
-import PopBox from '../components/popBox/popBox'
-export default {
-  name: 'shoppingunit',
-  data () {
-    return {
-      imgSrc: '',
-      shiLiImgs: {
-        '身份证正面照': require('../assets/img/sample/img_idcard_front.png')
+  import backBar from '../components/backBar/backBar'
+  import steps from '../components/uni-steps/uni-steps'
+  import myInput from '../components/myInput/myInput'
+  import mySelect from '../components/mySelect/mySelect'
+  import FileImg from '../components/fileImg/fileImg'
+  import PopBox from '../components/popBox/popBox'
+  export default {
+    name: 'shoppingunitOne',
+    data () {
+      return {
+        imgSrc: '',
+        shiLiImgs: {
+          '身份证正面照': require('../assets/img/sample/img_idcard_front.png')
+        },
+        showShiLiPoP: false,
+        step: 0,
+        UserName: { value: '' },
+        stepsTitle: [
+          { title: '法人信息' },
+          { title: '结算信息' },
+          { title: '商户信息' },
+          { title: '资料上传' }
+        ],
+        pickData: {
+          // 第一列的数据结构
+          data1: [
+            {
+              text: 1999,
+              value: 1999
+            },
+            {
+              text: 2001,
+              value: 2001
+            }
+          ]
+        }
+      }
+    },
+    components: {
+      backBar,
+      steps,
+      myInput,
+      mySelect,
+      FileImg,
+      PopBox
+    },
+    methods: {
+      log(val) {
+        console.log(val)
       },
-      showShiLiPoP: false,
-      step: 0,
-      UserName: { value: '' },
-      stepsTitle: [
-        { title: '法人信息' },
-        { title: '结算信息' },
-        { title: '商户信息' },
-        { title: '资料上传' }
-      ],
-      pickData: {
-        // 第一列的数据结构
-        data1: [
-          {
-            text: 1999,
-            value: 1999
-          },
-          {
-            text: 2001,
-            value: 2001
-          }
-        ]
+      shiLIPop(key) {
+        // debugger
+        this.imgSrc = this.shiLiImgs[key]
+        this.showShiLiPoP = true
+      },
+      cloceShiLiPop () {
+        debugger
+        this.showShiLiPoP = false
       }
     }
-  },
-  components: {
-    backBar,
-    steps,
-    myInput,
-    mySelect,
-    FileImg,
-    PopBox
-  },
-  methods: {
-    log(val) {
-      console.log(val)
-    },
-    shiLIPop(key) {
-      // debugger
-      this.imgSrc = this.shiLiImgs[key]
-      this.showShiLiPoP = true
-    },
-    cloceShiLiPop () {
-      debugger
-      this.showShiLiPoP = false
-    }
   }
-}
 </script>
 <style lang="scss" scoped>
-.content{
-  padding-top: 10px;
-  &.file-content{
-    padding: 0 25px ;
-    padding-bottom: 63px;
-    .file-row {
-      padding-bottom: 24px;
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-      /*justify-content: space-around;*/
-      /*justify-content: space-evenly;*/
+  .content{
+    padding-top: 10px;
+    &.file-content{
+      padding: 0 25px ;
+      padding-bottom: 63px;
+      .file-row {
+        padding-bottom: 24px;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        /*justify-content: space-around;*/
+        /*justify-content: space-evenly;*/
+      }
     }
   }
-}
-.next{
-  // margin-top: 325px;
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  width: $gw;
+  .next{
+    // margin-top: 325px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: $gw;
 
-height: 48px;
-line-height: 48px;
-background-color: rgba(5, 154, 220, 1);
-color:#FFF;
-font-size: 14px;
-text-align: center;
-font-family: Arial;
-span{
-  display: inline-block;
-  width: 50%;
-  height: 100%;
-}
-  span:first-child{
-    background-color: $hui ;
+    height: 48px;
+    line-height: 48px;
+    background-color: rgba(5, 154, 220, 1);
+    color:#FFF;
+    font-size: 14px;
+    text-align: center;
+    font-family: Arial;
+    span{
+      display: inline-block;
+      width: 50%;
+      height: 100%;
+    }
+    span:first-child{
+      background-color: $hui ;
+    }
   }
-}
   img.shi-li{
     width: 300px;
     height: 300px;

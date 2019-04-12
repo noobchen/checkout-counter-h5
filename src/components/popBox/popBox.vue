@@ -1,5 +1,5 @@
 <template>
-    <div class="shadom" ref="shadom">
+    <div class="shadom" ref="shadom" @click="$emit('close')">
         <div class="center">
 
             <slot></slot>
@@ -7,7 +7,7 @@
     </div>
 </template>
 <script>
-import { debug } from 'util';
+// import { debug } from 'util';
 export default {
     name: 'popBox',
     created() {
@@ -34,7 +34,7 @@ export default {
     left: 0px;
     right: 0px;
     bottom: 0px;
-    z-index: 99;
+    z-index: 999;
     display: flex;
     justify-content: center;
     align-items: center;
