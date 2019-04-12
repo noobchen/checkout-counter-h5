@@ -1,19 +1,19 @@
 <template>
   <div class="home">
     <div class="home-bar">卡e族收银台</div>
-    <pop-box>
-      <div class="fill-in-pop">
-        <div class="fill-wrap">
-          <div class="warn"></div>
-          <p>
-            此功能需要您完善商户资料
-            <br>才能使用
-          </p>
-        <div class="btn" @click="$router.push('/ruWangXingShi')">马上完善</div>
+    <!--<pop-box>-->
+      <!--<div class="fill-in-pop">-->
+        <!--<div class="fill-wrap">-->
+          <!--<div class="warn"></div>-->
+          <!--<p>-->
+            <!--此功能需要您完善商户资料-->
+            <!--<br>才能使用-->
+          <!--</p>-->
+        <!--<div class="btn" @click="$router.push('/ruWangXingShi')">马上完善</div>-->
 
-        </div>
-      </div>
-    </pop-box>
+        <!--</div>-->
+      <!--</div>-->
+    <!--</pop-box>-->
     <pop-Box v-if="showPop">
       <div class="pop-wrap">
         <div class="input-wrap ignore">
@@ -169,10 +169,10 @@ export default {
 
   .input-wrap {
     // box-sizing: border-box;
-    height: 40px;
+    /*height: 40px;*/
     padding: 43px 0px 31px 12px;
     // line-height: 52px;
-    color: rab(16, 16, 16);
+    color: rgb(16, 16, 16);
 
     input {
       box-sizing: border-box;
